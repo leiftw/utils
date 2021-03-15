@@ -1,0 +1,54 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 8e3c31d3807b68ba1f9fa389c2a4aa0a30b1ab78fc22081181d96eeb66c07da2
+
+name:           utils
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/leiftw/utils#readme>
+homepage:       https://github.com/leiftw/utils#readme
+bug-reports:    https://github.com/leiftw/utils/issues
+author:         Leif T W
+maintainer:     leif@leif.tw
+copyright:      2021 Leif T W
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/leiftw/utils
+
+library
+  exposed-modules:
+      ReadPMaybe
+      StrUtil
+      Util
+  other-modules:
+      Paths_utils
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , extra
+  default-language: Haskell2010
+
+test-suite utils-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_utils
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , extra
+    , utils
+  default-language: Haskell2010
