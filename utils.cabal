@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 5a2cc5ad97c53d3434ee6444d560f5175af55ecbde9f90e6b048dc8a85be60d7
+-- hash: 1a857ebe8445f43c1435daa4d6f17d2e2f96f734ae94aa33b5e7dbcac924df3d
 
 name:           utils
 version:        0.1.0.0
@@ -27,6 +27,7 @@ source-repository head
 
 library
   exposed-modules:
+      Chain
       ReadPMaybe
       ReadPUtil
       StrUtil
