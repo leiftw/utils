@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 1a857ebe8445f43c1435daa4d6f17d2e2f96f734ae94aa33b5e7dbcac924df3d
+-- hash: d469bff7c10ba88bc6482e475bfb2dd2056fdabf383eb1cfd2a7ce308ddc741a
 
 name:           utils
 version:        0.1.0.0
@@ -28,6 +28,7 @@ source-repository head
 library
   exposed-modules:
       Chain
+      OrdUtil
       ReadPMaybe
       ReadPUtil
       StrUtil
@@ -41,6 +42,7 @@ library
       base >=4.7 && <5
     , containers
     , extra
+    , safe
   default-language: Haskell2010
 
 test-suite utils-test
@@ -55,5 +57,6 @@ test-suite utils-test
       base >=4.7 && <5
     , containers
     , extra
+    , safe
     , utils
   default-language: Haskell2010
