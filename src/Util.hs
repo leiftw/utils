@@ -2,7 +2,6 @@ module Util where
 
 import Data.List (unfoldr)
 import Data.List.NonEmpty (NonEmpty(..))
-import Numeric.Natural
 
 import Control.Applicative (Applicative,Alternative,pure,empty,liftA2)
 
@@ -41,13 +40,9 @@ infixr 8 .|. -- in (f .|. g . h) precedence does not matter
 f .|. g = (f .) . g
 
 
--- move to *`NatUtil`?
-
-repliconcat :: Natural -> [a] -> [a]
-repliconcat = concat .|. replicat
-
-replicat :: Natural -> a -> [a]
-replicat = replicate . fromIntegral
+-- use `NatUtil`s `repli*` functions if possible
+repliconcate :: Int -> [a] -> [a]
+repliconcate = concat .|. replicate
 
 
 -- move, or get from alternative prelude?
