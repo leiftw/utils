@@ -1,7 +1,9 @@
 module Util where
 
 import Data.List (unfoldr)
-import Data.List.NonEmpty (NonEmpty(..))
+import Data.List.NonEmpty (NonEmpty(..),nonEmpty)
+import qualified Data.List.NonEmpty as NE (break)
+import Data.Tuple.Extra (secondM)
 
 import Control.Applicative (Applicative,Alternative,pure,empty,liftA2)
 
@@ -9,6 +11,9 @@ import Control.Applicative (Applicative,Alternative,pure,empty,liftA2)
 n_one :: [t] -> NonEmpty (Maybe t)
 n_one xs = Nothing :| map Just xs
 
+
+break_s :: (t -> Bool) -> NonEmpty t -> [[t]]
+break_s f = unfoldr (secondM nonEmpty . NE.break f)
 
 breaks :: (t -> Bool) -> [t] -> [[t]]
 breaks f = unfoldr (guarded (not.null.snd) . break f)
