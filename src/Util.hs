@@ -11,7 +11,7 @@ n_one xs = Nothing :| map Just xs
 
 
 breaks :: (t -> Bool) -> [t] -> [[t]]
-breaks f = unfoldr (Just . break f)
+breaks f = unfoldr (guarded (not.null.snd) . break f)
 --breaks _ [] = []
 --breaks f (x:xs) | f x       = [x] : breaks f xs
 --                | otherwise = x :.: breaks f xs
