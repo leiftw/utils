@@ -4,7 +4,7 @@ import Data.List (unfoldr)
 import Data.List.NonEmpty (NonEmpty(..),nonEmpty)
 import qualified Data.List.NonEmpty as NE (break)
 
-import Control.Applicative (Applicative,Alternative,pure,empty,liftA2)
+import Control.Applicative (Alternative,pure,empty)
 
 
 n_one :: [t] -> NonEmpty (Maybe t)
@@ -52,6 +52,3 @@ repliconcate = concat .|. replicate
 -- move, or get from alternative prelude?
 guarded :: (Alternative a) => (t -> Bool) -> t -> a t
 guarded f x = if f x then pure x else empty
-
-foldApp :: (Foldable f,Applicative a) => (t -> t -> t) -> f (a t) -> a t
-foldApp b = foldr1 (liftA2 b)

@@ -40,11 +40,6 @@ seqfoldSet b = foldr (flip (\xs -> foldr (union . (\y -> map (b y) xs)) [])) -- 
 --seqfoldSet f = foldr (\y -> flattunion . map (f y)) -- (flattunion .|. map . f) -- flattunion :: Set (Set t) -> Set t
 --seqfoldSet f = foldr (\y -> foldr (union . map (f y)) [])
 
--- currently unused, not `Set`-specific
-seqfoldoid :: (Foldable f,Foldable m,Functor m,Monoid (m t)) => (t -> t -> t) -> f (m t) -> m t
-seqfoldoid b = foldr1 (\xs -> foldr ((<>) . (\y -> fmap (b y) xs)) mempty)
--- how to do without `Functor`? -- isn't `Foldable Functor` `Traversable`?
-
 
 sequenset :: (Traversable t,Ord o) => t (Set o) -> Set (t o)
 sequenset = undefined -- TODO: implement!
