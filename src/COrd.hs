@@ -13,7 +13,10 @@ class COrd c where --(Num n) => COrd c n
  (<°) :: c -> c -> Bool
  cmin :: c -> c -> c
  cmax :: c -> c -> c
- c0 -° c1 = if c0 <° c1 then -1 else if c1 <° c0 then 1 else 0
+ c0 -° c1
+   | c0 <° c1 = -1
+   | c1 <° c0 = 1
+   | otherwise = 0
  c0 <° c1 = (c0 -° c1) < 0
  cmin c0 c1 = if c0 <° c1 then c0 else c1 -- don't override!
  cmax c0 c1 = if c0 <° c1 then c1 else c0 -- don't override!
